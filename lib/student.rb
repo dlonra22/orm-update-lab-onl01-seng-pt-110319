@@ -32,11 +32,11 @@ end
       self.update
     else
       sql = <<-SQL
-        INSERT INTO songs (name, album)
+        INSERT INTO students (name, album)
         VALUES (?, ?)
       SQL
       DB[:conn].execute(sql, self.name, self.album)
-      @id = DB[:conn].execute("SELECT last_insert_rowid() FROM songs")[0][0]
+      @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0]
     end
   end
   
@@ -67,7 +67,7 @@ end
   end
  
  def update
-    sql = "UPDATE songs SET name = ?, album = ? WHERE id = ?"
+    sql = "UPDATE students SET name = ?, album = ? WHERE id = ?"
     DB[:conn].execute(sql, self.name, self.album, self.id)
   end
 
