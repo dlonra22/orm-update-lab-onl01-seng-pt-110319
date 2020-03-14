@@ -40,7 +40,7 @@ end
     end
   end
   
-  def create(name,grade)
+  def self.create(name,grade)
     new_student = self.new()
     new_student.name = name 
     new_student.grade = grade
