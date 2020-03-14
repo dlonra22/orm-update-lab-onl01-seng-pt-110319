@@ -39,7 +39,7 @@ end
     @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0]
   end
   
-  def self.new_from_db(row)
+def self.new_from_db(row)
   new_student = self.new  
   new_student.id = row[0]
   new_student.name =  row[1]
@@ -47,5 +47,15 @@ end
   new_student
 end
   
+def self.find_by_name(name)
+    sql = <<-SQL
+        SELECT * 
+        FROM students
+        WHERE students.name = ?
+        SQL
+        DB[:conn].execute(sql,name).map do |row|
+          self.new_from_db(row)
+       end.first
+  end
 
 end
