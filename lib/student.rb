@@ -27,7 +27,7 @@ end
     DB[:conn].execute(sql)
   end
   
-    def save
+  def save
       if self.id
       self.update
     else
