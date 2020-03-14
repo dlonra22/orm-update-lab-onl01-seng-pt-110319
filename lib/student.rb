@@ -40,8 +40,8 @@ end
     end
   end
   
-  def self.create(name, grade, id = nil)
-    new_student = self.new(id,name,grade)
+  def self.create(name, grade)
+    new_student = self.new(name,grade)
     new_student.save
   end
   
