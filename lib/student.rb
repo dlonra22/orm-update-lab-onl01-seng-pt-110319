@@ -42,7 +42,7 @@ end
   
   def self.create(name,grade)
     new_student = self.new(name,grade)
-    save
+    new_student.save
   end
   
   def self.new_from_db(row)
